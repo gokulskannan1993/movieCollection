@@ -14,17 +14,24 @@ def addMovie():
     }
     myMovieCollection.append(myMovie)
 
+# Function to print Movie details
+
+
+def showMovieDetails(movie):
+    print("***************************")
+    print(f"Movie Name: {movie['name']}")
+    print(f"Director: {movie['director']}")
+    print(f"Release Year: {movie['year']}")
+    print("***************************")
+
+
 # Function to Show all Movies
 
 
 def showCollection():
 
     for movie in myMovieCollection:
-        print("***************************")
-        print(f"Movie Name: {movie['name']}")
-        print(f"Director: {movie['director']}")
-        print(f"Release Year: {movie['year']}")
-        print("***************************")
+        showMovieDetails(movie)
 
 
 # Function to Select the Search the Movie By Name
@@ -34,11 +41,7 @@ def searchMovieByName():
     nameInput = input("Movie Name : ")
     for movie in myMovieCollection:
         if movie["name"].lower() == nameInput.lower():
-            print("***************************")
-            print(f"Movie Name: {movie['name']}")
-            print(f"Director: {movie['director']}")
-            print(f"Release Year: {movie['year']}")
-            print("***************************")
+            showMovieDetails(movie)
         else:
             print(f"Movie not in the Collection")
 
@@ -49,11 +52,8 @@ def searchMovieByDirector():
     directorInput = input("Director : ")
     for movie in myMovieCollection:
         if movie["director"].lower() == directorInput.lower():
-            print("***************************")
-            print(f"Movie Name: {movie['name']}")
-            print(f"Director: {movie['director']}")
-            print(f"Release Year: {movie['year']}")
-            print("***************************")
+            showMovieDetails(movie)
+
         else:
             print(f"No {directorInput} movies in the Collection")
 
@@ -64,11 +64,8 @@ def searchMovieByYear():
     yearInput = int(input("Release Year : "))
     for movie in myMovieCollection:
         if movie["year"] == yearInput:
-            print("***************************")
-            print(f"Movie Name: {movie['name']}")
-            print(f"Director: {movie['director']}")
-            print(f"Release Year: {movie['year']}")
-            print("***************************")
+            showMovieDetails(movie)
+
         else:
             print(f"No {str(yearInput)} Movies in the Collection")
 
